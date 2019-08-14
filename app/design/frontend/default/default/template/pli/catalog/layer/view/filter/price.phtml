@@ -1,0 +1,85 @@
+<?php
+/**
+ * Magento Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    Pli
+ * @package     Pli_Layer
+ * @copyright   Copyright (c) Pavel Livinskiy <ikontakts@gmil.com>
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+$width=152;
+$rate=$this->getMaxPrice()/$width;
+?>
+<ol>
+	<li>
+		<div id="square_slider" class="slider" style="width:<?php echo $width?>px">
+		  <div id="square_slider_handle_min" class="handle left"></div>
+		  <div id="square_slider_handle_max" class="handle right"></div>
+		</div>
+		<div id="price-filter-from" class="price-filter-value"><?php echo $this->getSymbol()?><input type="text" value="<?php echo $this->getFrom();?>" /></div>&nbsp;-&nbsp;
+        <div id="price-filter-to"  class="price-filter-value"><?php echo $this->getSymbol()?><input type="text" value="<?php echo $this->getTo();?>" /></div>
+		<div class="price-filter-submit"><button class="button" id="price-filter-submit"><span><span><?php echo $this->helper('pli_layer')->__('Find')?></span></span></button></div>
+	</li>
+</ol>
+<script type="application/x-javascript">
+	var currentUrl='<?php echo urldecode($this->helper('core/url')->getCurrentUrl())?>';
+    var countParams='<?php echo count($this->getRequest()->getQuery())?>';
+	var handles = ['square_slider_handle_min', 'square_slider_handle_max'];
+	var square_slider = new Control.Slider(handles, 'square_slider', {
+	    range: $R(0, <?php echo $width?>),
+	    values: $R(0, <?php echo $width?>),
+	    sliderValue: [<?php echo round($this->getFrom()/$rate);?>, <?php echo round($this->getTo()/$rate)?>],
+	    restricted: true,
+		onSlide: function(value) {
+			var from=parseFloat(value[0]);
+			var to=parseFloat(value[1]);
+			var rate=parseFloat(<?php echo $rate?>);
+			$('price-filter-from').down().value=Math.round(rate*from);
+			$('price-filter-to').down().value=Math.round(rate*to);
+		},
+		onChange: function(value) {
+            var rate=parseFloat(<?php echo $rate?>);
+			var from=Math.round(parseFloat(value[0])*rate);
+			var to=Math.round(parseFloat(value[1])*rate);
+			$('price-filter-from').down().value=from;
+			$('price-filter-to').down().value=to;
+		}
+	});
+	document.observe('dom:loaded', function(){
+		$('price-filter-submit').observe('click', function(){
+			var currentFrom=<?php echo $this->getFrom();?>;
+   			var currentTo=<?php echo $this->getTo();?>;
+			var from=$('price-filter-from').down().value;
+			var to=$('price-filter-to').down().value;
+			if( currentFrom==from&&currentTo==to){
+				return;
+			}
+			var currentParams=currentUrl.toQueryParams();
+			if( countParams==0 ){
+			   currentParams=new Object({price:''});
+			}
+			currentParams.price=from+'-'+to;
+			var query=Object.toQueryString(currentParams);
+			var URI=currentUrl.split('?');
+			var url=URI[0]+'?'+query;
+			location.href=url;
+		});
+	});
+</script>

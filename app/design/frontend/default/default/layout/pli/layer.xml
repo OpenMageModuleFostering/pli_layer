@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout>
+	<catalog_category_layered>
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/pli/layer/style.css</stylesheet></action>
+		</reference>
+		<reference name="left">
+			<remove name="catalog.leftnav" />
+      		<block type="pli_layer/catalog_layer_view" name="pli.catalog.leftnav" after="currency" template="pli/catalog/layer/view.phtml"/>
+  		</reference>
+	</catalog_category_layered>
+
+	<catalogsearch_result_index>
+     <reference name="head">
+         <action method="addCss"><stylesheet>css/pli/layer/style.css</stylesheet></action>
+     </reference>
+     <reference name="left">
+         <remove name="catalogsearch.leftnav" />
+         <block type="pli_layer/catalogsearch_layer" name="pli.layer.catalogsearch.leftnav" after="currency" template="pli/catalogsearch/layer/view.phtml"/>
+     </reference>
+ </catalogsearch_result_index>
+
+</layout>

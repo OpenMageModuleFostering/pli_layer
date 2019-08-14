@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Pli_Layer</name>
+    <version>0.1.1</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>It is very convenient to use slider display mode for price.</summary>
+    <description>This Application facilitates user to simply fill in price figures in "From" and "To" fields. Clicking on Find link shall filter the products in the store, which fall in that price range. </description>
+    <notes>Pli_Layer 0.1.1</notes>
+    <authors><author><name>Pavel Livinskiy</name><user>plivinskiy</user><email>pavel.livinskij@gmail.com</email></author></authors>
+    <date>2014-04-30</date>
+    <time>20:11:43</time>
+    <contents><target name="magecommunity"><dir name="Pli"><dir name="Layer"><dir name="Block"><dir name="Catalog"><dir name="Layer"><file name="View.php" hash="3ba1d61a88ba823ae61b6cf8c87e0492"/></dir></dir><dir name="Catalogsearch"><file name="Layer.php" hash="d9587b6362f164df4ec6c5a0f227cc82"/></dir></dir><dir name="Helper"><file name="Data.php" hash="995499dfebae3dfb7124f915d28c3273"/></dir><dir name="Model"><dir name="Catalog"><dir name="Layer"><dir name="Filter"><file name="Price.php" hash="94ffaaeb1f3fdf5d04e3ce4118a17346"/></dir></dir></dir><file name="Session.php" hash="0e1f20931fc0644644dca3dc16428c63"/><dir name="Source"><file name="Price.php" hash="1707b9c4fc9f8ba8a7636dc062489c61"/></dir></dir><dir name="etc"><file name="config.xml" hash="79315ada9532479068c0126ddde53597"/><file name="system.xml" hash="33021b4901c3a83845a24fef7ba9e429"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><dir name="pli"><file name="layer.xml" hash="20f6fb4eb59cb13cdafb8e0108c82a7b"/></dir></dir><dir name="template"><dir name="pli"><dir name="catalog"><dir name="layer"><dir name="view"><dir name="filter"><file name="price.phtml" hash="a1b5e0ec39e48c9f27b63e085e1c874b"/></dir></dir><file name="view.phtml" hash="8a0899bf8e082afc4e79c23a30c22a44"/></dir></dir><dir name="catalogsearch"><dir name="layer"><file name="view.phtml" hash="8a0899bf8e082afc4e79c23a30c22a44"/></dir></dir></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><dir name="pli"><dir name="layer"><file name="style.css" hash="693a29eb9da1127aa73097d77d388fe5"/></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Pli_Layer.xml" hash="18c41e0ff5d753780477eae57ffe0940"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.3.0</min><max>5.4.0</max></php></required></dependencies>
+</package>
