@@ -25,7 +25,7 @@
 <config>
 	<modules>
 		<Pli_Layer>
-			<version>0.1.1</version>
+			<version>0.1.2</version>
 		</Pli_Layer>
 	</modules>
 	<global>
