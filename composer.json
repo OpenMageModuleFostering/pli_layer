@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Pli_Layer",
+    "name": "openmage-module-fostering\/pli_layer",
     "type": "magento-module",
-    "license": "Open-Software-License",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "It is very convenient to use slider display mode for price.",
     "authors": [
