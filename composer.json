@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Pli_Layer",
+    "name": "OpenMageModuleFostering\/Pli_Layer",
     "type": "magento-module",
     "license": "Open-Software-License",
     "homepage": "",
     "description": "It is very convenient to use slider display mode for price.",
     "authors": [
-    {
-        "name": "Pavel Livinskiy",
-        "email": "pavel.livinskij@gmail.com"
-    }
-],
+        {
+            "name": "Pavel Livinskiy",
+            "email": "pavel.livinskij@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
